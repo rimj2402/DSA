@@ -1,1 +1,1 @@
-Balanced
+Diameter is:5
