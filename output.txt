@@ -1,1 +1,1 @@
-Diameter is:5
+Maximum Path Sum: 42
