@@ -13,24 +13,37 @@ struct Node{
 class Solution{
 public:
     vector<vector<int>> verticalOrder(Node* root){
-        vector<vector<int>> res;
-        if(!root) return res;
-        map<int,vector<int>> mp;
-        queue<pair<Node*,int>> q;
-        q.push({root,0});
+        map<int,map<int,multiset<int>>> nodes;
+        queue<pair<Node* , pair<int,int>>> q;
+        q.push({root,{0,0}});
         while(!q.empty()){
-            auto p = q.front();
+            auto p=q.front();
             q.pop();
-            Node* node = p.first;
-            int hd = p.second;
-            mp[hd].push_back(node->data);
-            if(node->left) q.push({node->left,hd-1});
-            if(node->right) q.push({node->right,hd+1});
+            Node* node=p.first;
+            int x=p.second.first, y=p.second.second;
+            nodes[x][y].insert(node->data);
+            if(node->left) q.push({node->left,{x-1,y+1}});
+            if(node->right) q.push({node->right,{x+1,y+1}});
         }
-        for(auto it:mp){
-            res.push_back(it.second);
+        // Print the values stored in nodes
+cout << "Contents of nodes:\n";
+for(auto &p : nodes){
+    for(auto &q : p.second){
+        for(int val : q.second){
+            cout << val << " ";
         }
-        return res;
+    }
+    cout << endl;      // New line after each vertical column
+}
+        vector<vector<int>> ans;
+        for(auto p : nodes){
+            vector<int>col;
+            for(auto q:p.second){
+                col.insert(col.end(),q.second.begin(),q.second.end());
+            }
+            ans.push_back(col);
+        }
+        return ans;
     }
 };
 
@@ -39,9 +52,11 @@ int main(){
     root->left = new Node(2);
     root->right = new Node(3);
     root->left->left = new Node(4);
-    root->left->right = new Node(5);
-    root->right->left = new Node(6);
-    root->right->right = new Node(7);
+    root->left->right = new Node(11);
+    root->right->left = new Node(9);
+    root->right->right = new Node(10);
+    root->left->left->right = new Node(5);
+    root->left->left->right->right  = new Node(6);
     Solution sol;
     vector<vector<int>> result = sol.verticalOrder(root);
     for(const auto& level : result){
