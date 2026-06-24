@@ -1,1 +1,1 @@
-The tree is symmetric.
+Path from root to node 6: 1 2 4 5 6 
