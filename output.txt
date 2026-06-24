@@ -1,1 +1,1 @@
-Lowest Common Ancestor of 5 and 2 is: 5
+Maximum width of the binary tree: 4
