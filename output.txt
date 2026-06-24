@@ -1,1 +1,1 @@
-Path from root to node 6: 1 2 4 5 6 
+Lowest Common Ancestor of 5 and 2 is: 5
