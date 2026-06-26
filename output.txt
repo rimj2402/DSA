@@ -1,1 +1,1 @@
-Modified tree in-order: 50 100 50 200 50 100 50 
+Total number of nodes in the binary tree: 6

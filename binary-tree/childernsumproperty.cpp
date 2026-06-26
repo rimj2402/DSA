@@ -13,6 +13,14 @@ struct Node{
 
 class Solution{
     public:
+    bool isSumProperty(Node* root){
+        if(root==NULL) return true;
+        if(root->left==NULL && root->right==NULL) return true;
+        int child=0;
+        if(root->left) child+=root->left->data;
+        if(root->right) child+=root->right->data;
+        return (root->data==child && isSumProperty(root->left) && isSumProperty(root->right));
+    }
     void changetree(Node* root){
         if(root==NULL) return;
         int child=0;
