@@ -1,1 +1,1 @@
-Maximum width of the binary tree: 4
+Modified tree in-order: 50 100 50 200 50 100 50 
