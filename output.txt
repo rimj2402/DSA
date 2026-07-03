@@ -1,1 +1,1 @@
-You can walk safely through the grid.
+The minimum value in the BST is: 2
