@@ -1,1 +1,1 @@
-The minimum value in the BST is: 2
+The maximum value in the BST is: 8
