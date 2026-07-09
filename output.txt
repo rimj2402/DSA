@@ -1,1 +1,1 @@
-Time taken for all oranges to rot: 4
+Number of Provinces: 2
